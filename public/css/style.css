@@ -1,0 +1,253 @@
+/* Importation de la police Orbitron */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* Corps de la page */
+body {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    text-align: center;
+    background: black; /* Fond noir */
+}
+/* Fond animé avec un GIF */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/img/Sick Lets Go GIF by Assassins Creed.gif') no-repeat center center fixed;
+
+    background-size: cover;
+    z-index: -1;
+  }
+  
+  .background-slider {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.background-slider img {
+    position: absolute;
+    width: 100vw; /* Largeur = 100% de l'écran */
+    height: 100vh; /* Hauteur = 100% de l'écran */
+    object-fit: cover; /* Ajuste l'image sans la déformer */
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
+
+.background-slider img.active {
+    opacity: 1;
+}
+
+
+/* Fond vidéo/GIF */
+#background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2; /* Assurez-vous que la vidéo est en arrière-plan */
+}
+
+#fallback-image {
+    display: none; /* Sera affichée si la vidéo ne fonctionne pas */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+/* Overlay sombre pour meilleure lisibilité */
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: -1; /* Assurez-vous que l'overlay soit derrière le contenu */
+}
+
+/* Conteneur du chat */
+.chat-container {
+    width: 420px;
+    background: rgba(20, 20, 20, 0.9);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+    border: 2px solid cyan;
+    z-index: 1;
+}
+
+/* Titre du chat */
+h1 {
+    font-size: 24px;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px cyan;
+}
+
+/* Zone de chat */
+.chat-box {
+    height: 300px;
+    overflow-y: auto;
+    border: 2px solid cyan;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 255, 255, 0.3);
+    background: rgba(10, 10, 10, 0.8); /* Fond sombre pour la zone de chat */
+}
+
+/* Messages du bot et de l'utilisateur */
+.message {
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 8px;
+    display: inline-block;
+    max-width: 80%;
+}
+
+.bot {
+    background: rgba(0, 255, 255, 0.2);
+    border-left: 3px solid cyan;
+    text-align: left;
+}
+
+.user {
+    background: rgba(255, 0, 127, 0.3);
+    border-right: 3px solid magenta;
+    text-align: right;
+}
+
+/* Input et bouton d'envoi */
+.input-container {
+    display: flex;
+}
+
+input {
+    flex: 1;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 2px solid cyan;
+    background: black;
+    color: white;
+    text-align: center;
+    outline: none;
+}
+
+button {
+    margin-left: 10px;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 2px solid magenta;
+    background: black;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: magenta;
+    box-shadow: 0 0 10px magenta;
+}
+
+/* Animation de bienvenue */
+.welcome-screen {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-shadow: 0 0 10px cyan, 0 0 20px magenta;
+    animation: fadeOut 3s forwards 2s;
+    z-index: 10;
+    text-align: center;
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(1.2); }
+}
+.chat-container {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 420px;
+    background: rgba(20, 20, 20, 0.9);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+    border: 2px solid cyan;
+    z-index: 1;
+}
+
+.chat-container {
+    opacity: 0;
+    transform: translate(-50%, 50px);
+    animation: slideUp 1s forwards 4s;
+}
+
+@keyframes slideUp {
+    0% { opacity: 0; transform: translate(-50%, 50px); }
+    100% { opacity: 1; transform: translate(-50%, 0); }
+}
+/* Style du bouton pour démarrer le chatbot */
+.start-button-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    text-align: center;
+}
+
+#start-chat-btn {
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background: cyan;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+    transition: background 0.3s ease;
+}
+
+#start-chat-btn:hover {
+    background: magenta;
+    box-shadow: 0 0 20px magenta;
+}
+
+/* Animation du bouton */
+.icon {
+    font-size: 25px;
+}

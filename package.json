@@ -1,0 +1,14 @@
+{
+    "name": "chatbot-gamingv2",
+    "version": "1.0.0",
+    "description": "Chatbot de recommandations de jeux vidéo",
+    "main": "index.js",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "author": "Ton nom",
+    "license": "MIT",
+    "dependencies": {
+        "express": "^4.21.2"
+    }
+}
